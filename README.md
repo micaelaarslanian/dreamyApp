@@ -1,2 +1,2 @@
 # dreamyApp
-Created with CodeSandbox
+App where users can create notes, edit and delete them.
