@@ -62,7 +62,7 @@ function App() {
             <Header />
             <div className="title-container">
                 <h1>Wake. Recall. Reflect. </h1>
-                <h2>Your dreams hold meaning. Log them here—every detail, every feeling—as soon as you wake up. <br></br> Start building a map of your inner world.</h2>
+                <h2>Your dreams hold meaning. <br></br>Log them here: every detail, every feeling—as soon as you wake up. <br></br> Start building a map of your inner world.</h2>
             </div>
             <CreateArea onAdd={addNote} />
 
