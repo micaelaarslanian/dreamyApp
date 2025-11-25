@@ -111,10 +111,10 @@ app.delete("/notes/:id", async (req, res) => {
 });
 
 
-// // Sample route (for testing)
-app.get("/notes", (req, res) => {
-  res.json([{ title: "Dream", content: "Flying" }]);
-});
+// // // Sample route (for testing)
+// app.get("/notes", (req, res) => {
+//   res.json([{ title: "Dream", content: "Flying" }]);
+// });
 
 
 app.listen(5050, () => {

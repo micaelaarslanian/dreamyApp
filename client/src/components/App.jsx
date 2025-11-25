@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import Header from "./Header";
+import Footer from "./Footer";
 import Note from "./Note";
 import CreateArea from "./CreateArea";
 
@@ -58,16 +59,27 @@ function App() {
 
 
     return (
-        <div>
+        <div className="min-h-screen bg-[ghostwhite] overflow-x-hidden pb-16">
             <Header />
-            <div className="title-container">
-                <h1>Wake. Recall. Reflect. </h1>
-                <h2>Your dreams hold meaning. <br></br>Log them here: every detail, every feeling—as soon as you wake up. <br></br> Start building a map of your inner world.</h2>
+
+            {/* Title block is always centered and in the middle of the page.  */}
+            <div className="max-w-3xl mt-20 mx-auto px-10 pb-6">
+                <h1 className="font-[Forum] text-center text-3xl sm:text-4xl font-semibold text-[#557791]">
+                    Wake. Recall. Reflect.
+                </h1>
+                <h2 className="font-[Forum] text-center text-xl sm:text-2xl font-light text-[#2d413f] mt-6">
+                    Your dreams hold meaning. <br />
+                    Log them here: every detail, every feeling—as soon as you wake up.{" "}
+                    <br />
+                    Start building a map of your inner world.
+                </h2>
             </div>
+
             <CreateArea onAdd={addNote} />
 
-            {notes.map((noteItem, index) => {
-                return (
+            {/* Responsive notes grid */}
+            <div className="max-w-6xl mx-auto px-10 mt-10 py-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+                {notes.map((noteItem) => (
                     <Note
                         key={noteItem.id}
                         id={noteItem.id}
@@ -76,8 +88,10 @@ function App() {
                         onDelete={deleteNote}
                         onEdit={updateNote}
                     />
-                );
-            })}
+                ))}
+            </div>
+
+            <Footer />
         </div>
     );
 }

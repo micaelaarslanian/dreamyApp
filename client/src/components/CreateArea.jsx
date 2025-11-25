@@ -83,23 +83,27 @@ function CreateArea(props) {
 
 
 
-
     return (
-        <div>
-            <form className="create-note">
+        <div className="px-10">
+            <form className="relative max-w-[720px] mx-auto mt-10 mb-4  px-6  py-4 bg-white rounded-lg shadow-md">
                 {isExpanded && (
                     <>
-                        {errors.title && <p className="error-message">{errors.title}</p>}
+                        {errors.title && (
+                            <p className="text-red-500 text-sm mb-1">{errors.title}</p>
+                        )}
                         <input
                             name="title"
                             onChange={handleChange}
                             value={note.title}
                             placeholder="Main theme"
+                            className="w-full border-b border-gray-200 pb-1 mb-3 outline-none text-xl font-[Forum] placeholder:text-gray-400 focus:border-[#557791]"
                         />
                     </>
                 )}
 
-                {errors.content && <p className="error-message">{errors.content}</p>}
+                {errors.content && (
+                    <p className="text-red-500 text-sm mb-1">{errors.content}</p>
+                )}
 
                 <textarea
                     name="content"
@@ -108,18 +112,21 @@ function CreateArea(props) {
                     value={note.content}
                     placeholder="What did you dream? Write it here."
                     rows={isExpanded ? 3 : 1}
+                    className="w-full border-none outline-none text-xl font-[Forum] resize-none placeholder:text-gray-400"
                 />
 
                 <Zoom in={isExpanded}>
                     <button
-                        onClick={submitNote}>
-                        <AddIcon />
+                        onClick={submitNote}
+                        type="button"
+                        className="absolute right-4 -bottom-4 flex items-center justify-center w-10 h-10 rounded-full bg-[#557791] text-[#efedc0] shadow-md hover:bg-[#3c5569] transition"
+                    >
+                        <AddIcon fontSize="small" />
                     </button>
                 </Zoom>
             </form>
         </div>
     );
-
 }
 
 export default CreateArea;
